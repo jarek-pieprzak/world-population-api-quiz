@@ -1,2 +1,1 @@
-# world-population-quiz
-quiz using API api.population.io
+# Population API quiz
