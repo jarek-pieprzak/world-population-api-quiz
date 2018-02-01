@@ -1,15 +1,17 @@
-//
-// $.ajax({
-//     type:"GET",
-//     url: "http://api.population.io:80/1.0/countries",
-//     success: function(data) {
-//         $("body").append(JSON.stringify(data));
-//     },
-//     error: function(jqXHR, textStatus, errorThrown) {
-//         console.log(jqXHR.status);
-//     },
-//     dataType: "jsonp"
-// });
+$.ajax({
+    type:"GET",
+    url: "http://api.population.io:80/1.0/countries",
+    success: function(data) {
+        incomeData = data;
+
+        console.log(incomeData.countries[2])
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.status);
+    },
+    dataType: "json"
+});
+
 
 var countries = {
     "countries": [
@@ -254,7 +256,7 @@ var countries = {
 
 var randomCountry = countries.countries[Math.floor(Math.random()*countries.countries.length)];
 
-console.log(randomCountry)
+// console.log(randomCountry)
 
 var quests = [
     {
