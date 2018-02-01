@@ -1,4 +1,3 @@
-
 // $.ajax({
 //     type:"GET",
 //     url: "http://api.population.io:80/1.0/countries",
@@ -256,46 +255,50 @@ function fiveCountries() {
     };
     var fiveCountries = [];
     for (i = 0; i < 5; i++) {
-        fiveCountries.push(countryList.countries[Math.floor(Math.random()*countryList.countries.length)])
+        fiveCountries.push(countryList.countries[Math.floor(Math.random() * countryList.countries.length)])
     }
     return fiveCountries;
 }
 
-console.log(fiveCountries())
+var country = fiveCountries()
+
+console.log(country)
 
 
-
-
-
-
+console.log(country[0])
+console.log(country[1])
+console.log(country[2])
+console.log(country[3])
+console.log(country[4])
 
 
 var quests = [
-    // {
-    // quest: "What is the population of " + randomCountry.toString() + "",
-    // answers: ["100 million", "40 million", "1 million", "35 million"],
-    // correct: 1
-    // },
     {
-    quest: "What is the population of England?",
-    answers: ["1 million", "2 million", "3 million", "4 million"],
-    correct: 2
+        quest: "What is the population of " + country[0] + "?",
+        answers: ["100 million", "40 million", "1 million", "35 million"],
+        correct: 1
     },
     {
-    quest: "What is the population of Germany?",
-    answers: ["5 million", "6 million", "7 million", "8 million"],
-    correct: 1
+        quest: "What is the population of " + country[1] + "?",
+        answers: ["100 million", "40 million", "1 million", "35 million"],
+        correct: 1
     },
     {
-    quest: "What is the population of Kambodia?",
-    answers: ["9 million", "56 million", "56 million", "10 million"],
-    correct: 0
+        quest: "What is the population of " + country[2] + "?",
+        answers: ["100 million", "40 million", "1 million", "35 million"],
+        correct: 1
     },
     {
-    quest: "What is the population of China?",
-    answers: ["100 million", "40 million", "1 million", "123123 million"],
-    correct: 0
-}];
+        quest: "What is the population of " + country[3] + "?",
+        answers: ["100 million", "40 million", "1 million", "35 million"],
+        correct: 1
+    },
+    {
+        quest: "What is the population of " + country[4] + "?",
+        answers: ["100 million", "40 million", "1 million", "35 million"],
+        correct: 1
+    },
+];
 
 var numQuests = quests.length
 
@@ -316,54 +319,54 @@ $(document).ready(function () {
         .on("click", function () {
 
 
-        if (!end) {
+            if (!end) {
 
-        value = $("input[type='radio']:checked").val();
+                value = $("input[type='radio']:checked").val();
 
-            if (value == undefined) {
-                $(document)
-                    .find(".alert")
-                    .text("Please select an answer");
-
-                $(document)
-                    .find(".alert")
-                    .show();
-
-            } else {
-                $(document)
-                    .find(".alert")
-                    .hide();
-
-                if (value == quests[activeQuest].correct) {
-                    correctAnswers++;
-                }
-
-                activeQuest++;
-                if (activeQuest < quests.length) {
-                    displayQuest();
-                } else {
-                    displayScore();
+                if (value == undefined) {
+                    $(document)
+                        .find(".alert")
+                        .text("Please select an answer");
 
                     $(document)
-                        .find(".next")
-                        .text("Play Again?");
+                        .find(".alert")
+                        .show();
 
-                    end = true;
+                } else {
+                    $(document)
+                        .find(".alert")
+                        .hide();
+
+                    if (value == quests[activeQuest].correct) {
+                        correctAnswers++;
+                    }
+
+                    activeQuest++;
+                    if (activeQuest < quests.length) {
+                        displayQuest();
+                    } else {
+                        displayScore();
+
+                        $(document)
+                            .find(".next")
+                            .text("Play Again?");
+
+                        end = true;
+                    }
                 }
+            } else {
+                end = false;
+
+                $(document)
+                    .find(".next")
+                    .text("Next Question");
+
+
+                restart();
+                displayQuest();
+                hideScore();
             }
-        } else {
-            end = false;
-
-            $(document)
-                .find(".next")
-                .text("Next Question");
-
-
-            restart();
-            displayQuest();
-            hideScore();
-        }
-    });
+        });
 
 });
 
@@ -397,8 +400,7 @@ function restart() {
 }
 
 function displayScore() {
-    $(document).
-        find(".quizBox > .result")
+    $(document).find(".quizBox > .result")
         .text("Result: "
             + correctAnswers
             + "/"
