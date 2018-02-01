@@ -255,7 +255,11 @@ function fiveCountries() {
     };
     var fiveCountries = [];
     for (i = 0; i < 5; i++) {
-        fiveCountries.push(countryList.countries[Math.floor(Math.random() * countryList.countries.length)])
+        fiveCountries.push(
+            countryList.countries[
+                Math.floor(
+                    Math.random()
+                    * countryList.countries.length)])
     }
     return fiveCountries;
 }
@@ -275,27 +279,57 @@ console.log(country[4])
 var quests = [
     {
         quest: "What is the population of " + country[0] + "?",
-        answers: ["100 million", "40 million", "1 million", "35 million"],
+        answers:
+            [
+                "100 million",
+                "40 million",
+                "1 million",
+                "35 million"
+            ],
         correct: 1
     },
     {
         quest: "What is the population of " + country[1] + "?",
-        answers: ["100 million", "40 million", "1 million", "35 million"],
+        answers:
+            [
+                "100 million",
+                "40 million",
+                "1 million",
+                "35 million"
+            ],
         correct: 1
     },
     {
         quest: "What is the population of " + country[2] + "?",
-        answers: ["100 million", "40 million", "1 million", "35 million"],
+        answers:
+            [
+                "100 million",
+                "40 million",
+                "1 million",
+                "35 million"
+            ],
         correct: 1
     },
     {
         quest: "What is the population of " + country[3] + "?",
-        answers: ["100 million", "40 million", "1 million", "35 million"],
+        answers:
+            [
+                "100 million",
+                "40 million",
+                "1 million",
+                "35 million"
+            ],
         correct: 1
     },
     {
         quest: "What is the population of " + country[4] + "?",
-        answers: ["100 million", "40 million", "1 million", "35 million"],
+        answers:
+            [
+                "100 million",
+                "40 million",
+                "1 million",
+                "35 million"
+            ],
         correct: 1
     },
 ];
