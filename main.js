@@ -1,3 +1,18 @@
+
+$.ajax({
+    type:"GET",
+    url: "http://api.population.io:80/1.0/countries",
+    success: function(data) {
+        $("body").append(JSON.stringify(data));
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.status);
+    },
+    dataType: "jsonp"
+});
+
+
+
 var quests = [
     {
     quest: "What is the population of Poland?",
