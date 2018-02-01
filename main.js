@@ -1,16 +1,21 @@
-// $.ajax({
-//     type:"GET",
-//     url: "http://api.population.io:80/1.0/countries",
-//     success: function(data) {
-//         incomeData = data;
-//
-//         console.log(incomeData.countries[3])
-//     },
-//     error: function(jqXHR, textStatus, errorThrown) {
-//         console.log(jqXHR.status);
-//     },
-//     dataType: "json"
-// });
+function getCountries() {
+    $.ajax({
+        type:"GET",
+        url: "http://api.population.io:80/1.0/countries",
+        success: function(data) {
+            incomeData = data;
+
+            console.log(incomeData.countries)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.status);
+        },
+        dataType: "json"
+    });
+}
+
+getCountries()
+
 
 function fiveCountries() {
     var countryList = {
