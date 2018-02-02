@@ -3,7 +3,7 @@ function getCountries() {
         type:"GET",
         url: "http://api.population.io:80/1.0/countries",
         success: function(data) {
-            incomeData = data;
+            var incomeData = data;
 
             console.log(incomeData.countries)
         },
@@ -13,6 +13,8 @@ function getCountries() {
         dataType: "json"
     });
 }
+// http://api.population.io:80/1.0/population/Brazil/2015-12-24/
+
 
 getCountries()
 
@@ -271,15 +273,25 @@ function fiveCountries() {
 
 var country = fiveCountries()
 
-console.log(country)
-
-
-console.log(country[0])
-console.log(country[1])
-console.log(country[2])
-console.log(country[3])
-console.log(country[4])
-
+// function getPopulation() {
+//     for (i = 0; i < country.length; i++) {
+//         $.ajax({
+//             type:"GET",
+//             url: "http://api.population.io:80/1.0/population/" + country[i] + "/2015-12-24/",
+//             success: function(data) {
+//                 incomeData = data;
+//
+//                 console.log(incomeData.countries)
+//             },
+//             error: function(jqXHR, textStatus, errorThrown) {
+//                 console.log(jqXHR.status);
+//             },
+//             dataType: "json"
+//         });
+//     }
+// }
+//
+// getPopulation()
 
 var quests = [
     {
