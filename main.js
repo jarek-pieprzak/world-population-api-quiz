@@ -1,278 +1,47 @@
 function getCountries() {
-    $.ajax({
-        type:"GET",
+    return $.ajax({
+        type: "GET",
         url: "http://api.population.io:80/1.0/countries",
-        success: function(data) {
-            var incomeData = data;
-
-            console.log(incomeData.countries)
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR.status);
-        },
         dataType: "json"
-    });
+    })
+        .then(({countries}) => countries)
+        .catch(function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.status);
+        });
 }
-// http://api.population.io:80/1.0/population/Brazil/2015-12-24/
 
-
-getCountries()
-
-
-function fiveCountries() {
-    var countryList = {
-        "countries": [
-            "Afghanistan",
-            "AFRICA",
-            "Albania",
-            "Algeria",
-            "Angola",
-            "Antigua and Barbuda",
-            "Arab Rep of Egypt",
-            "Argentina",
-            "Armenia",
-            "Aruba",
-            "ASIA",
-            "Australia",
-            "Australia/New Zealand",
-            "Austria",
-            "Azerbaijan",
-            "The Bahamas",
-            "Bahrain",
-            "Bangladesh",
-            "Barbados",
-            "Belarus",
-            "Belgium",
-            "Belize",
-            "Benin",
-            "Bhutan",
-            "Bolivia",
-            "Bosnia and Herzegovina",
-            "Botswana",
-            "Brazil",
-            "Brunei Darussalam",
-            "Bulgaria",
-            "Burkina Faso",
-            "Burundi",
-            "Cote-d-Ivoire",
-            "Cabo Verde",
-            "Cambodia",
-            "Cameroon",
-            "Canada",
-            "Caribbean",
-            "Central African Republic",
-            "Central America",
-            "Central Asia",
-            "Chad",
-            "Channel Islands",
-            "Chile",
-            "China",
-            "Hong Kong SAR-China",
-            "Macao SAR China",
-            "Colombia",
-            "Comoros",
-            "Congo",
-            "Costa Rica",
-            "Croatia",
-            "Cuba",
-            "Curacao",
-            "Cyprus",
-            "Czech Republic",
-            "Dem Peoples Rep of Korea",
-            "Dem Rep of Congo",
-            "Denmark",
-            "Djibouti",
-            "Dominican Republic",
-            "Eastern Africa",
-            "Eastern Asia",
-            "Eastern Europe",
-            "Ecuador",
-            "El Salvador",
-            "Equatorial Guinea",
-            "Eritrea",
-            "Estonia",
-            "Ethiopia",
-            "EUROPE",
-            "Federated States of Micronesia",
-            "Fiji",
-            "Finland",
-            "France",
-            "French Guiana",
-            "French Polynesia",
-            "FYR Macedonia",
-            "Gabon",
-            "The Gambia",
-            "Georgia",
-            "Germany",
-            "Ghana",
-            "Greece",
-            "Grenada",
-            "Guadeloupe",
-            "Guam",
-            "Guatemala",
-            "Guinea",
-            "Guinea-Bissau",
-            "Guyana",
-            "Haiti",
-            "Honduras",
-            "Hungary",
-            "Iceland",
-            "India",
-            "Indonesia",
-            "Islamic Republic of Iran",
-            "Iraq",
-            "Ireland",
-            "Israel",
-            "Italy",
-            "Jamaica",
-            "Japan",
-            "Jordan",
-            "Kazakhstan",
-            "Kenya",
-            "Kiribati",
-            "Kuwait",
-            "Kyrgyz Republic",
-            "Lao PDR",
-            "LATIN AMERICA AND THE CARIBBEAN",
-            "Latvia",
-            "Least developed countries",
-            "Lebanon",
-            "Lesotho",
-            "Less developed regions",
-            "Less developed regions, excluding China",
-            "Less developed regions, excluding least developed countries",
-            "Liberia",
-            "Libya",
-            "Lithuania",
-            "Luxembourg",
-            "Madagascar",
-            "Malawi",
-            "Malaysia",
-            "Maldives",
-            "Mali",
-            "Malta",
-            "Martinique",
-            "Mauritania",
-            "Mauritius",
-            "Mayotte",
-            "Melanesia",
-            "Mexico",
-            "Micronesia",
-            "Middle Africa",
-            "Moldova",
-            "Mongolia",
-            "Montenegro",
-            "More developed regions",
-            "Morocco",
-            "Mozambique",
-            "Myanmar",
-            "Namibia",
-            "Nepal",
-            "The Netherlands",
-            "New Caledonia",
-            "New Zealand",
-            "Nicaragua",
-            "Niger",
-            "Nigeria",
-            "Northern Africa",
-            "NORTHERN AMERICA",
-            "Northern Europe",
-            "Norway",
-            "OCEANIA",
-            "Oman",
-            "Other non-specified areas",
-            "Pakistan",
-            "Panama",
-            "Papua New Guinea",
-            "Paraguay",
-            "Peru",
-            "Philippines",
-            "Poland",
-            "Polynesia",
-            "Portugal",
-            "Puerto Rico",
-            "Qatar",
-            "Reunion",
-            "RB-de-Venezuela",
-            "Rep of Korea",
-            "Rep of Yemen",
-            "Romania",
-            "Russian Federation",
-            "Rwanda",
-            "St-Lucia",
-            "St-Vincent and the Grenadines",
-            "Samoa",
-            "Sao Tome and Principe",
-            "Saudi Arabia",
-            "Senegal",
-            "Serbia",
-            "Seychelles",
-            "Sierra Leone",
-            "Singapore",
-            "Slovak Republic",
-            "Slovenia",
-            "Solomon Islands",
-            "Somalia",
-            "South Africa",
-            "South America",
-            "South Sudan",
-            "South-Central Asia",
-            "South-Eastern Asia",
-            "Southern Africa",
-            "Southern Asia",
-            "Southern Europe",
-            "Spain",
-            "Sri Lanka",
-            "West Bank and Gaza",
-            "Sub-Saharan Africa",
-            "Sudan",
-            "Suriname",
-            "Swaziland",
-            "Sweden",
-            "Switzerland",
-            "Syrian Arab Rep",
-            "Tajikistan",
-            "Tanzania",
-            "Thailand",
-            "Timor-Leste",
-            "Togo",
-            "Tonga",
-            "Trinidad and Tobago",
-            "Tunisia",
-            "Turkey",
-            "Turkmenistan",
-            "Uganda",
-            "Ukraine",
-            "United Arab Emirates",
-            "United Kingdom",
-            "United States",
-            "US Virgin Islands",
-            "Uruguay",
-            "Uzbekistan",
-            "Vanuatu",
-            "Vietnam",
-            "Western Africa",
-            "Western Asia",
-            "Western Europe",
-            "Western Sahara",
-            "World",
-            "Zambia",
-            "Zimbabwe"
-        ]
-    };
-    var fiveCountries = [];
-    for (i = 0; i < 5; i++) {
-        fiveCountries.push(
-            countryList.countries[
-                Math.floor(
-                    Math.random()
-                    * countryList.countries.length)])
+function fiveCountries(countries) {
+    const fiveCountries = [];
+    for (let i = 0; i < 5; i++) {
+        fiveCountries.push(countries[Math.floor(Math.random() * countries.length)])
     }
     return fiveCountries;
 }
 
-var country = fiveCountries()
+function humanizePopulation(pop) {
+    const thresholds = [
+        {x: 1000000000, s: ' billion'},
+        {x: 1000000, s: ' million'},
+        {x: 1000, s: ' thousand'},
+        {x: 1, s: ''},
+    ];
+    for (let i = 0; i < thresholds.length; i++) {
+        const t = thresholds[i];
+        if (pop >= t.x) {
+            return `${Math.floor(pop / t.x)}${t.s}`;
+        }
+    }
+}
 
+function generateQuestion({country, population}) {
+    return {
+        quest: `What is the population of ${country}?`,
+        answers: [humanizePopulation(population)],
+        correct: 1,
+    }
+}
+
+// Get DATA for specific country
 // function getPopulation() {
 //     for (i = 0; i < country.length; i++) {
 //         $.ajax({
@@ -293,135 +62,96 @@ var country = fiveCountries()
 //
 // getPopulation()
 
-var quests = [
-    {
-        quest: "What is the population of " + country[0] + "?",
-        answers:
-            [
-                "100 million",
-                "40 million",
-                "1 million",
-                "35 million"
-            ],
-        correct: 1
-    },
-    {
-        quest: "What is the population of " + country[1] + "?",
-        answers:
-            [
-                "100 million",
-                "40 million",
-                "1 million",
-                "35 million"
-            ],
-        correct: 1
-    },
-    {
-        quest: "What is the population of " + country[2] + "?",
-        answers:
-            [
-                "100 million",
-                "40 million",
-                "1 million",
-                "35 million"
-            ],
-        correct: 1
-    },
-    {
-        quest: "What is the population of " + country[3] + "?",
-        answers:
-            [
-                "100 million",
-                "40 million",
-                "1 million",
-                "35 million"
-            ],
-        correct: 1
-    },
-    {
-        quest: "What is the population of " + country[4] + "?",
-        answers:
-            [
-                "100 million",
-                "40 million",
-                "1 million",
-                "35 million"
-            ],
-        correct: 1
-    },
-];
-
-var numQuests = quests.length
-
 var activeQuest = 0;
 var correctAnswers = 0;
 var end = false;
 
 $(document).ready(function () {
 
-    displayQuest();
+    getCountries()
+        .then(c => fiveCountries(c))
+        .then(countries =>
+            Promise.all(countries.map(country =>
+                $.ajax({
+                    type: "GET",
+                    url: `http://api.population.io:80/1.0/population/${country}/2018-02-04/`,
+                    dataType: "json"
+                })
+                    .then(({total_population: {population}}) => ({country, population}))
+            ))
+        )
+        .then(c => c.map(generateQuestion))
+        .then(quests => {
+            console.log(quests);
+            return quests;
+        })
+        .then(quests => {
+            displayQuest(quests);
+            return quests;
+        })
+        .then(quests => {
+            $(this)
+                .find(".alert")
+                .hide();
 
-    $(this)
-        .find(".alert")
-        .hide();
-
-    $(this)
-        .find(".next")
-        .on("click", function () {
+            $(this)
+                .find(".next")
+                .on("click", function () {
 
 
-            if (!end) {
+                    if (!end) {
 
-                value = $("input[type='radio']:checked").val();
+                        let value = $("input[type='radio']:checked").val();
 
-                if (value == undefined) {
-                    $(document)
-                        .find(".alert")
-                        .text("Please select an answer");
+                        if (value === undefined) {
+                            $(document)
+                                .find(".alert")
+                                .text("Please select an answer");
 
-                    $(document)
-                        .find(".alert")
-                        .show();
+                            $(document)
+                                .find(".alert")
+                                .show();
 
-                } else {
-                    $(document)
-                        .find(".alert")
-                        .hide();
+                        } else {
+                            $(document)
+                                .find(".alert")
+                                .hide();
 
-                    if (value == quests[activeQuest].correct) {
-                        correctAnswers++;
-                    }
+                            if (value === quests[activeQuest].correct) {
+                                correctAnswers++;
+                            }
 
-                    activeQuest++;
-                    if (activeQuest < quests.length) {
-                        displayQuest();
+                            activeQuest++;
+                            if (activeQuest < quests.length) {
+                                displayQuest(quests);
+                            } else {
+                                displayScore();
+
+                                $(document)
+                                    .find(".next")
+                                    .text("Play Again?");
+
+                                end = true;
+                            }
+                        }
                     } else {
-                        displayScore();
+                        end = false;
 
                         $(document)
                             .find(".next")
-                            .text("Play Again?");
+                            .text("Next Question");
 
-                        end = true;
+
+                        restart();
+                        displayQuest(quests);
+                        hideScore();
                     }
-                }
-            } else {
-                end = false;
-
-                $(document)
-                    .find(".next")
-                    .text("Next Question");
-
-
-                restart();
-                displayQuest();
-                hideScore();
-            }
-        });
-
+                });
+        })
+        .catch(e => console.error(e));
 });
 
-function displayQuest() {
+function displayQuest(quests) {
 
     var quest = quests[activeQuest].quest;
     var questClass = $(document).find(".quizBox > .quests");
@@ -433,13 +163,9 @@ function displayQuest() {
     $(answers).find("li").remove();
 
     var choice;
-    for (i = 0; i < numChoices; i++) {
+    for (let i = 0; i < numChoices; i++) {
         choice = quests[activeQuest].answers[i];
-        $('<li><input type="radio" value='
-            + i
-            + ' name="dynradio" />'
-            + choice
-            + '</li>')
+        $(`<li><input type="radio" value=${i} name="dynradio" />${choice}</li>`)
             .appendTo(answers);
     }
 }
