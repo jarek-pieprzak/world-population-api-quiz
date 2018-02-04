@@ -37,8 +37,8 @@ function generateQuestion({country, population}) {
     return {
         quest: `What is the population of ${country}?`,
         answers: [
-            humanizePopulation(population),
             humanizePopulation(Math.floor((Math.random() * 1000000000) + 1)),
+            humanizePopulation(population),
             humanizePopulation(Math.floor((Math.random() * 1000000000000) + 1)),
             humanizePopulation(Math.floor((Math.random() * 1000000000) + 1))
         ],
@@ -87,6 +87,8 @@ $(document).ready(function () {
 
                         var value = $("input[type='radio']:checked").val();
 
+                        console.log(value)
+
                         if (value === undefined) {
                             $(document)
                                 .find(".alert")
@@ -101,7 +103,7 @@ $(document).ready(function () {
                                 .find(".alert")
                                 .hide();
 
-                            if (value === quests[activeQuest].correct) {
+                            if (value === quests[activeQuest].answers.correct) {
                                 correctAnswers++;
                             }
 
