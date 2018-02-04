@@ -36,7 +36,12 @@ function humanizePopulation(pop) {
 function generateQuestion({country, population}) {
     return {
         quest: `What is the population of ${country}?`,
-        answers: [humanizePopulation(population)],
+        answers: [
+            humanizePopulation(population),
+            humanizePopulation(Math.floor((Math.random() * 1000000000) + 1)),
+            humanizePopulation(Math.floor((Math.random() * 1000000000000) + 1)),
+            humanizePopulation(Math.floor((Math.random() * 1000000000) + 1))
+        ],
         correct: 1,
     }
 }
@@ -181,7 +186,7 @@ function displayScore() {
         .text("Result: "
             + correctAnswers
             + "/"
-            + quests.length);
+            + 5);
 
     $(document).find(".quizBox > .result").show();
 }
