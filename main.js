@@ -12,7 +12,7 @@ function getCountries() {
 
 function fiveCountries(countries) {
     const fiveCountries = [];
-    for (let i = 0; i < 5; i++) {
+    for (var i = 0; i < 5; i++) {
         fiveCountries.push(countries[Math.floor(Math.random() * countries.length)])
     }
     return fiveCountries;
@@ -25,7 +25,7 @@ function humanizePopulation(pop) {
         {x: 1000, s: ' thousand'},
         {x: 1, s: ''},
     ];
-    for (let i = 0; i < thresholds.length; i++) {
+    for (var i = 0; i < thresholds.length; i++) {
         const t = thresholds[i];
         if (pop >= t.x) {
             return `${Math.floor(pop / t.x)}${t.s}`;
@@ -45,27 +45,6 @@ function generateQuestion({country, population}) {
         correct: 1,
     }
 }
-
-// Get DATA for specific country
-// function getPopulation() {
-//     for (i = 0; i < country.length; i++) {
-//         $.ajax({
-//             type:"GET",
-//             url: "http://api.population.io:80/1.0/population/" + country[i] + "/2015-12-24/",
-//             success: function(data) {
-//                 incomeData = data;
-//
-//                 console.log(incomeData.countries)
-//             },
-//             error: function(jqXHR, textStatus, errorThrown) {
-//                 console.log(jqXHR.status);
-//             },
-//             dataType: "json"
-//         });
-//     }
-// }
-//
-// getPopulation()
 
 var activeQuest = 0;
 var correctAnswers = 0;
@@ -106,7 +85,7 @@ $(document).ready(function () {
 
                     if (!end) {
 
-                        let value = $("input[type='radio']:checked").val();
+                        var value = $("input[type='radio']:checked").val();
 
                         if (value === undefined) {
                             $(document)
@@ -168,7 +147,7 @@ function displayQuest(quests) {
     $(answers).find("li").remove();
 
     var choice;
-    for (let i = 0; i < numChoices; i++) {
+    for (var i = 0; i < numChoices; i++) {
         choice = quests[activeQuest].answers[i];
         $(`<li><input type="radio" value=${i} name="dynradio" />${choice}</li>`)
             .appendTo(answers);
