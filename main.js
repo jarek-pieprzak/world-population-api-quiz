@@ -66,7 +66,7 @@ $(document).ready(function () {
         )
         .then(c => c.map(generateQuestion))
         .then(quests => {
-            console.log(quests);
+            // console.log(quests);
             return quests;
         })
         .then(quests => {
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
                         var value = $("input:checked").val();
 
-                        console.log(value)
+                        // console.log(value)
 
                         if (value === undefined) {
                             $(document)
