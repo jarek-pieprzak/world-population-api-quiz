@@ -11,6 +11,12 @@ h1 {
     -moz-animation-iteration-count: 5;
     -o-animation-iteration-count: 5;
     animation-iteration-count: 5;
+    text-shadow: 2px 2px 2px #CCCCCC;
+    color: rgb(202, 60, 60);
+    -webkit-mask-box-image: -webkit-gradient(linear,
+    left top, left right,
+    color-stop(20%,rgba(0,0,0,1)),
+    color-stop(100%,rgba(0,0,0,0)));
 }
 
 .container {
@@ -44,4 +50,11 @@ li {
 
 li:last-child {
     padding-bottom: 0;
+}
+
+.button-error {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(202, 60, 60);
 }
