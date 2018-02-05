@@ -1,5 +1,5 @@
 body {
-    background: url("src/crowd.jpg");
+    background: url("../src/crowd.jpg");
     font-family: 'Merriweather', serif;
 }
 
@@ -7,6 +7,10 @@ h1 {
     text-align: center;
     padding-top: 2vh;
     font-family: 'Merriweather', serif;
+    -webkit-animation-iteration-count: 5;
+    -moz-animation-iteration-count: 5;
+    -o-animation-iteration-count: 5;
+    animation-iteration-count: 5;
 }
 
 .container {
