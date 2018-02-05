@@ -179,6 +179,6 @@ function displayScore() {
 
 function hideScore() {
     $(document)
-        .find("result")
+        .find(".quizBox > .result")
         .hide();
 }
