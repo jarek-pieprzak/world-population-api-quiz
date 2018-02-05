@@ -85,7 +85,7 @@ $(document).ready(function () {
 
                     if (!end) {
 
-                        var value = $("input[type='radio']:checked").val();
+                        var value = $("input:checked").val();
 
                         console.log(value)
 
@@ -103,11 +103,12 @@ $(document).ready(function () {
                                 .find(".alert")
                                 .hide();
 
-                            if (value === quests[activeQuest].answers.correct) {
+                            if (value === quests[activeQuest].correct) {
                                 correctAnswers++;
                             }
 
                             activeQuest++;
+
                             if (activeQuest < quests.length) {
                                 displayQuest(quests);
                             } else {
@@ -139,14 +140,18 @@ $(document).ready(function () {
 
 function displayQuest(quests) {
 
+
     var quest = quests[activeQuest].quest;
     var questClass = $(document).find(".quizBox > .quests");
     var answers = $(document).find(".quizBox > .answers");
     var numChoices = quests[activeQuest].answers.length;
 
+
     $(questClass).text(quest);
 
     $(answers).find("li").remove();
+
+
 
     var choice;
     for (var i = 0; i < numChoices; i++) {
@@ -154,9 +159,6 @@ function displayQuest(quests) {
         $(`<li><input type="radio" value=${i} name="dynradio" />${choice}</li>`)
             .appendTo(answers);
     }
-
-    $('#quests').addClass('animated slideInLeft');
-
 }
 
 function restart() {
@@ -177,6 +179,6 @@ function displayScore() {
 
 function hideScore() {
     $(document)
-        .find(".result")
+        .find("result")
         .hide();
 }
