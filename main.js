@@ -154,6 +154,9 @@ function displayQuest(quests) {
         $(`<li><input type="radio" value=${i} name="dynradio" />${choice}</li>`)
             .appendTo(answers);
     }
+
+    $('#quests').addClass('animated slideInLeft');
+
 }
 
 function restart() {

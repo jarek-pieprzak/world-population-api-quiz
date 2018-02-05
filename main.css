@@ -1,0 +1,35 @@
+body {
+    background: url("src/crowd.jpg");
+    font-family: 'Merriweather', serif;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 2vh;
+    font-family: 'Merriweather', serif;
+}
+
+.container {
+    width: 50%;
+    margin-top: 15vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 45px;
+}
+
+button {
+    margin-bottom: 3vh;
+    margin-left: 2vw;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: initial;
+}
+
+li {
+    padding-bottom: 0.6em;
+}
+
+li:last-child {
+    padding-bottom: 0;
+}
